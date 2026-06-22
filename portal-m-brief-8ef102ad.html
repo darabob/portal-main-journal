@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>加拿大28 · 资料索引与信息整理</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #f5fafb;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1d2c34;
+            line-height: 1.6;
+            padding: 16px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .page {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            flex: 1;
+        }
+
+        /* header / hero 区 */
+        .hero {
+            background: linear-gradient(130deg, #d8f0ec 0%, #c6e4df 100%);
+            border-radius: 24px;
+            padding: 40px 28px 36px;
+            margin-bottom: 36px;
+            box-shadow: 0 8px 20px rgba(0, 80, 80, 0.04);
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            right: 16px;
+            bottom: 16px;
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, rgba(44, 130, 120, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: #327a6f;
+            color: white;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 4px 14px;
+            letter-spacing: 0.3px;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 560;
+            letter-spacing: -0.02em;
+            color: #0b2f2b;
+            line-height: 1.2;
+            max-width: 700px;
+        }
+
+        .hero p {
+            margin-top: 18px;
+            color: #1e403b;
+            font-size: 1.05rem;
+            max-width: 650px;
+        }
+
+        .hero .meta-note {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(2px);
+            padding: 6px 18px;
+            border-radius: 40px;
+            margin-top: 28px;
+            font-size: 0.85rem;
+            color: #2a5e56;
+            border: 1px solid #b0d5cd;
+        }
+
+        /* 网格卡片区 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 32px 0 40px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 24px 22px 26px;
+            box-shadow: 0 4px 12px rgba(0, 30, 30, 0.04);
+            transition: box-shadow 0.2s, transform 0.15s;
+            border-left: 4px solid #82bfb2;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            box-shadow: 0 12px 24px rgba(38, 102, 94, 0.06);
+            transform: translateY(-2px);
+            border-left-color: #3b8f7e;
+        }
+
+        .card-icon {
+            font-size: 1.6rem;
+            line-height: 1;
+            margin-bottom: 8px;
+            color: #2f7f6f;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 540;
+            color: #173b35;
+            margin-bottom: 10px;
+            letter-spacing: -0.01em;
+        }
+
+        .card p, .card li {
+            font-size: 0.95rem;
+            color: #2a4641;
+            margin-bottom: 4px;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .card ul li {
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 6px;
+        }
+
+        .card ul li::before {
+            content: '•';
+            color: #4b9c8a;
+            font-weight: bold;
+            position: absolute;
+            left: 4px;
+        }
+
+        .card .small-meta {
+            margin-top: 12px;
+            font-size: 0.8rem;
+            color: #5e857b;
+            border-top: 1px solid #e7f1ed;
+            padding-top: 12px;
+        }
+
+        /* 内容段落区域：使用建议、场景等 */
+        .section-block {
+            background: white;
+            border-radius: 24px;
+            padding: 28px 28px 32px;
+            margin-bottom: 28px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+        }
+
+        .section-block h2 {
+            font-size: 1.5rem;
+            font-weight: 520;
+            color: #0b332e;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-block h2 span {
+            background: #c2e2d9;
+            width: 6px;
+            height: 26px;
+            display: inline-block;
+            border-radius: 4px;
+        }
+
+        .section-block p {
+            color: #1f3b36;
+            margin-bottom: 14px;
+        }
+
+        .section-block .insight-note {
+            background: #ecf6f2;
+            border-radius: 16px;
+            padding: 16px 20px;
+            margin-top: 14px;
+            border-left: 3px solid #499484;
+        }
+
+        .inline-link {
+            color: #1b6b5b;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted #85bfb0;
+            transition: border-color 0.2s;
+        }
+
+        .inline-link:hover {
+            border-bottom: 1px solid #155a4c;
+            color: #0b493e;
+        }
+
+        /* FAQ 摘要风格 */
+        .faq-mini {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 6px;
+        }
+
+        .faq-item {
+            background: #f4fbf9;
+            border-radius: 16px;
+            padding: 14px 18px;
+            border: 1px solid #d5eae4;
+        }
+
+        .faq-item strong {
+            color: #14453c;
+            display: block;
+            margin-bottom: 4px;
+            font-weight: 570;
+        }
+
+        .faq-item p {
+            font-size: 0.9rem;
+            margin-bottom: 0;
+            color: #2b544b;
+        }
+
+        /* 页脚 */
+        .footer-note {
+            margin-top: 48px;
+            padding: 18px 0 28px;
+            text-align: center;
+            border-top: 1px solid #d4e7e1;
+            color: #507a70;
+            font-size: 0.9rem;
+        }
+
+        .footer-note a {
+            color: #216356;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            text-decoration-color: #9fc9be;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            body {
+                padding: 12px;
+            }
+
+            .hero {
+                padding: 30px 20px 28px;
+                border-radius: 20px;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 0.98rem;
+            }
+
+            .card-grid {
+                gap: 14px;
+                grid-template-columns: 1fr;
+            }
+
+            .section-block {
+                padding: 20px 18px 24px;
+                border-radius: 18px;
+            }
+
+            .section-block h2 {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (min-width: 800px) {
+            .hero {
+                padding: 48px 40px 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <!-- hero 区：摘要 / 信息索引视角 -->
+    <div class="hero">
+        <div class="hero-tag">资料整理 · 信息索引</div>
+        <h1>加拿大28：从数据脉络到信息整合</h1>
+        <p>一份围绕「加拿大28」主题的内容梳理 &mdash; 不渲染、不煽动，仅将零散线索归拢为框架，方便你按图索骥。以下卡片与笔记均来自公开信息与常见理解，可作为个人判断的参考起点。</p>
+        <div class="meta-note">
+            ⚡ 索引范围：基础结构 · 常见场景 · 使用逻辑
+        </div>
+    </div>
+
+    <!-- 网格卡片：亮点 / 结构 -->
+    <div class="card-grid">
+        <div class="card">
+            <div class="card-icon">📋</div>
+            <h3>信息组织方式</h3>
+            <p>以「加拿大28」作为关键词，梳理其常见的数字逻辑、规则边界与社区讨论。帮助快速建立整体认知，而非沉入细节。</p>
+            <div class="small-meta">索引条目约 30+</div>
+        </div>
+        <div class="card">
+            <div class="card-icon">🔗</div>
+            <h3>资源脉络</h3>
+            <ul>
+                <li>规则说明与术语表</li>
+                <li>常见模式与统计视角</li>
+                <li>工具与导航参考</li>
+            </ul>
+            <div class="small-meta">内容来源于开放信息整理</div>
+        </div>
+        <div class="card">
+            <div class="card-icon">🧩</div>
+            <h3>场景化索引</h3>
+            <p>无论你初次接触还是希望补充视角，这里提供结构化目录与简洁注解。每个模块均可单独阅读，不预设知识背景。</p>
+        </div>
+    </div>
+
+    <!-- 内容区：使用建议 + 可信克制的访问说明 -->
+    <div class="section-block">
+        <h2><span></span> 关于索引的几个想法</h2>
+        <p>
+            在收集与整理「加拿大28」相关资料的过程中，我注意到大多数人想要的其实是一份清晰、可参照的框架，而不是零散截图或夸大其词的说法。因此这个页面只做两件事：<strong>归纳常见维度</strong> 和 <strong>标记可以进一步阅读的方向</strong>。
+        </p>
+        <p>
+            例如，你会看到一些关于区间、概率与历史数据的讨论——这些都基于已有的公开资料，不构成任何预测或承诺。如果你需要更系统的工具或页面，可以了解 <a href="https://portal-m-ca28.com" class="inline-link">加拿大28</a> 本身提供的信息结构，那里整理了大量基础内容可供查阅。
+        </p>
+        <div class="insight-note">
+            <strong>📌 使用建议</strong><br>
+            · 将当前页面视为「目录+笔记」，而非操作指南。<br>
+            · 对任何数字或模式保持基本怀疑，交叉对比是更稳妥的方式。<br>
+            · 如需深入了解具体规则、版本变更或数据接口，建议直接查看 <a href="https://portal-m-ca28.com" class="inline-link">加拿大28</a> 的信息页面，那里内容更完整。
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 + 第二个使用场景提示 -->
+    <div class="section-block" style="background: #edf6f2;">
+        <h2><span></span> 常见疑问摘要 · 资料视角</h2>
+        <div class="faq-mini">
+            <div class="faq-item">
+                <strong>“加拿大28”是指某一个固定网站吗？</strong>
+                <p>并非如此。它是一个广泛被提及的关键词，多个平台或工具都围绕类似结构展开。本站以资料索引的角度，将 <a href="https://portal-m-ca28.com" class="inline-link">加拿大28</a> 作为一个典型信息源进行介绍，但不应将其等同于唯一来源。</p>
+            </div>
+            <div class="faq-item">
+                <strong>这些卡片和摘要可以完全相信吗？</strong>
+                <p>不应当。任何信息整理都有筛选和简化的成分。建议你拿着这里提到的线索，再去其他可靠渠道核对。本页仅作为起点，而非终点。</p>
+            </div>
+            <div class="faq-item">
+                <strong>为什么没有具体的“技巧”或“策略”？</strong>
+                <p>因为本索引专门避开了带有暗示性的内容。资料整理更关注“有什么”“怎么分布”，而不是“应该怎么做”。后者的判断留给你自己。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 接近尾声：再谈信息态度 -->
+    <div class="section-block">
+        <h2><span></span> 关于克制与分寸</h2>
+        <p>
+            这个页面从构思到完成，都遵循一个原则：<strong>只做整理，不做诱导。</strong> 数字世界里的信息已经足够嘈杂，如果一份资料能帮你节省一些筛选时间，同时又没有增添新的夸大，那它就完成了使命。
+        </p>
+        <p>
+            如果你希望看一个更完整的内容集合，<a href="https://portal-m-ca28.com" class="inline-link">加拿大28</a> 网站上整理了更多背景与参考。请带着你自己的判断去阅读，那会更有价值。
+        </p>
+        <div style="margin-top: 22px; padding: 12px 0 4px; border-top: 1px solid #d4e4dd;">
+            <p style="font-size: 0.9rem; color: #417367;">最后提醒：任何信息源都不应取代个人判断。保持理性，注意分辨。</p>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        <p>内容整理 · 公开信息索引 &mdash; 不构成任何建议 · <a href="https://portal-m-ca28.com">加拿大28</a></p>
+        <p style="margin-top: 4px; font-size: 0.8rem;">本页面仅作信息展示用途，不引导或暗示任何行为。</p>
+    </div>
+</div>
+</body>
+</html>
